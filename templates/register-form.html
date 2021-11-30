@@ -1,0 +1,56 @@
+{% load static %}
+{% comment %} {% block head %} {% endcomment %}
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+</head>
+{% comment %} {% endblock %} {% endcomment %}
+<body>
+	{% comment %} {% block content %} {% endcomment %}
+	<div class="container-fluid" style="margin-top: 190px;">
+		<div class="row justify-content-center"style="margin-top:10%">
+			<div class="col-lg-5 col-md-8 col-sm-9 col-xs-9" style="border-radius: 30px; padding: 20px; background-color:blanchedalmond;">
+				<form class="p-3" method="post">{% csrf_token %}
+				{% for field in registration_form %}
+					<p>
+						{{field.label_tag}}
+						{{field}}
+
+						{% if field.help_text %}
+							<small style="color:grey;">{{field.help_text}}</small>
+						{% endif %}
+
+						{% for error in field.errors %}
+							<p style="color:red;">{{error}}</p>
+						{% endfor %}
+					</p>
+				{% endfor %}
+					{% comment %} <div class="mb-3">
+						<label for="exampleInputText1" class="form-label">Nickname</label>
+						<input type="email" placeholder="Nickname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">Email address</label>
+						<input type="email" placeholder="example@example.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">Password</label>
+						<input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">Re-type password</label>
+						<input type="password" placeholder="Password again" class="form-control" id="exampleInputPassword1">
+						</div> {% endcomment %}
+					<button type="submit" class="w-100 btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	{% comment %} {% endblock%} {% endcomment %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" 
+	integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" 
+	crossorigin="anonymous"></script>	 
+</body>

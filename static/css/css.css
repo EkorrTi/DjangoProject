@@ -1,0 +1,6 @@
+body{
+	background: linear-gradient(green,orange);
+	background-size: cover;
+	background-attachment: fixed;
+	box-sizing: border-box;
+}

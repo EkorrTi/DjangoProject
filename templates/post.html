@@ -1,0 +1,12 @@
+{% load static %}
+<div class="col border border-secondary rounded mx-4 my-5" style="padding: 20px;">                    
+  <div class="d-flex flex-wrap">
+    <h2><img src="{% static 'images/avatar.png' %}" class="img rounded-circle" alt="n" style="height: 75px;">
+      <a class="text-decoration-none text-dark " href="#">{{data.user.username}}</a> 
+      <span class="fw-light fst-italic">posted on {{data.time}}</span>
+    </h2>
+  </div>
+  <div class="col  border border-secondary" style="margin-top: 40px">
+    <p class="p-sm-3 text-muted">{{data.text}}</p>
+  </div>
+</div>

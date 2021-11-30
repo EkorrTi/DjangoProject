@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+{% endblock %}
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+
+    <div class="container">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+          </button>
+
+      <a class="navbar-brand" href="{% url 'home' %}">
+        Day Studio
+        </a>
+
+      <div class="collapse navbar-collapse fo" id="navbarSupportedContent">
+
+        <ul class="navbar-nav m-auto mb-2 mb-lg-0 align-items-center">
+
+          <li class="nav-item mx-2">
+
+            <a class="nav-link fs-6 text-light" href="home"}>Home</a>
+
+          </li>
+
+          <li class="nav-item mx-2">
+
+            <a class="nav-link fs-6 text-light" href="register">Registration</a>
+
+          </li>
+
+          <li class="nav-item mx-2">
+
+            <a class="nav-link fs-6 text-light" href="contacts"}>About us</a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+      {% if request.user.is_authenticated %}
+        <p>
+        <a href="{% url 'account' %}">{{request.user.username}} </a> | 
+        <a href="{% url 'logout' %}">logout</a>
+        </p>
+      {% else %}
+        <p>
+          <a href="{% url 'register' %}">Register</a> | 
+          <a href="{% url 'login' %}">Login</a>
+        </p>
+      {% endif %}
+
+    </div>
+
+  </nav>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    {% for field in account_form %}
+        <p>
+            {{field.label_tag}}
+            {{field}}
+
+            {% if field.help_text %}
+                <small style="color:grey;">{{field.help_text}}</small>
+            {% endif %}
+        </p>
+    {% endfor %}
+    {% for field in account_form %}
+        {% for error in field.errors %}
+            <p style="color:red;">{{error}}</p>
+        {% endfor %}
+    {% endfor %}
+    {% if account_form.non_field_errors %}
+        <div style="color:red;">
+            <p>{{account_form.non_field_errors}}</p>
+        </div>
+    {% endif %}
+    <button type="submit" class="w-100 btn btn-primary mt-3">Save</button>
+</form>
+{% endblock %}
