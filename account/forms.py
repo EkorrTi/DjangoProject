@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import fields
 from .models import Account
+from article.models import Posts
  
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=60, help_text='Required. A valid email address')
@@ -53,3 +54,10 @@ class AccountUpdateForm(forms.ModelForm):
             except Account.DoesNotExist:
                 return username
             raise forms.ValidationError('Username "%s" is already in use.' % account.username)
+
+class MakePostForm(forms.ModelForm):
+    text = forms.Textarea()
+    class Meta:
+        model = Posts
+        fields = ('text',)
+        exclude = ('user', 'time',)

@@ -1,10 +1,10 @@
 from django.db import models
-from django.db.models.deletion import CASCADE
+# from django.db.models.deletion import CASCADE
 
 from account.models import Account
     
 class Posts(models.Model):
-    user = models.ForeignKey(Account, on_delete=CASCADE)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
     text = models.TextField()
 

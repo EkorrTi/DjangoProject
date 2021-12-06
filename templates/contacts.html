@@ -1,23 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
 {% block head %}
-<head>
-
-  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>contacts</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'css/contacts.css' %}">
-
-</head>
 {% endblock %}
 
-<body>
 {% block content %}
-  
 <div class="container-fluid" style="font-size: 100%;">
 
   <div class="row d-flex border border-1 rounded bg-light justify-content-center" style="height: 95vh; margin: 0 60px;">
@@ -48,11 +37,5 @@
         
   </div>
 
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" 
-  integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" 
-  crossorigin="anonymous"></script>  
+</div> 
 {% endblock%}
-</body>
-</html>
