@@ -9,6 +9,7 @@
 
 
 {% block content %}
+<div class="row d-flex bg-light h-auto border-1 rounded-bottom">
 <form method="post">{% csrf_token %}
     {% for field in account_form %}
         <p>
@@ -30,6 +31,7 @@
             <p>{{account_form.non_field_errors}}</p>
         </div>
     {% endif %}
-    <button type="submit" class="w-100 btn btn-primary mt-3">Save</button>
+    <button type="submit" class="w-100 btn btn-primary my-3">Save</button>
 </form>
+</div>
 {% endblock %}

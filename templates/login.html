@@ -1,55 +1,34 @@
+{% extends "base.html" %}
 {% load static %}
-<head>
+{% block head %}
 	<meta charset="utf-8">
 	<title>Day Studio</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
-</head>
-<body>
-	<div class="container-fluid" style="margin-top: 190px;">
-		<div class="row justify-content-center"style="margin-top:10%">
-			<div class="col-lg-5 col-md-8 col-sm-9 col-xs-9" style="border-radius: 30px; padding: 20px; background-color:blanchedalmond;">
-				{% block content %}
-				<form class="p-3" method="post">{% csrf_token %}
-					{% for field in login_form %}
-						<p>
-							{{field.label_tag}}
-							{{field}}
+{% endblock head %}
+{% block content %}
+<div class="container row d-flex bg-light h-auto border-1 rounded-bottom">
+	<form class="p-3" method="post">{% csrf_token %}
+		{% for field in login_form %}
+			<p>
+				{{field.label_tag}}
+				{{field}}
 
-							{% if field.help_text %}
-								<small style="color:grey;">{{field.help_text}}</small>
-							{% endif %}
-						</p>
-					{% endfor %}
-					{% for field in login_form %}
-						{% for error in field.errors %}
-							<p style="color:red;">{{error}}</p>
-						{% endfor %}
-					{% endfor %}
-					{% if login_form.non_field_errors %}
-						<div style="color:red;">
-							<p>{{login_form.non_field_errors}}</p>
-						</div>
-					{% endif %}
-					
-					{% comment %} 
-						<div class="mb-6">
-							<label for="InputEmail" class="form-label">Email</label>
-							<input type="email" placeholder="type your email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-						</div>
-						<div class="mb-6">
-							<label for="Password" class="form-label">Password</label>
-							<input type="password" placeholder="type your password" class="form-control" id="exampleInputPassword1">
-						</div>
-					{% endcomment %}
-					<button type="submit" class="w-100 btn btn-primary mt-3">Sign in</button>
-				</form>
-				{% endblock %}
+				{% if field.help_text %}
+					<small style="color:grey;">{{field.help_text}}</small>
+				{% endif %}
+			</p>
+		{% endfor %}
+		{% for field in login_form %}
+			{% for error in field.errors %}
+				<p style="color:red;">{{error}}</p>
+			{% endfor %}
+		{% endfor %}
+		{% if login_form.non_field_errors %}
+			<div style="color:red;">
+				<p>{{login_form.non_field_errors}}</p>
 			</div>
-		</div>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" 
-	integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" 
-	crossorigin="anonymous"></script>	 
-</body>
+		{% endif %}
+		<button type="submit" class="w-100 btn btn-primary mt-3">Sign in</button>
+	</form>
+</div>
+{% endblock %}

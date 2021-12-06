@@ -4,7 +4,6 @@
 	<title>Makin a Post</title>
 {% endblock %}
 {% block content %}
-	<div class="container-fluid" style="margin-top: 190px;">
 		<div class="row justify-content-center"style="margin-top:10%">
 			<div class="col-lg-5 col-md-8 col-sm-9 col-xs-9" style="border-radius: 30px; padding: 20px; background-color:blanchedalmond;">
 				<form class="p-3" method="post">{% csrf_token %}
@@ -20,15 +19,6 @@
 				{% endfor %}
 					<button type="submit" class="w-100 btn btn-primary">Submit</button>
 				</form>
-
-				{% comment %} <form class="" action="home">
-						<div class="form-group">
-		    					<label for="Text input">Creation of the New Post</label>
-		    					<textarea class="form-control" rows="5"></textarea>
-  						</div>
-					<button type="submit" class="w-100 btn btn-primary mt-3">Submit</button>
-				</form> {% endcomment %}
 			</div>
 		</div>
-	</div>
 {% endblock%}

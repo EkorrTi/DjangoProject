@@ -8,9 +8,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid fs-6">
-  <div class="row d-flex bg-light h-auto" style="margin: 0 60px;">
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+  <div class="row d-flex bg-light h-auto border-1 rounded-bottom">
+    <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
@@ -21,11 +20,10 @@
       </ul>
       <hr>
     </div>
-    <div class="col-12 col-lg-9 col-md-9 col-sm-12 d-flex flex-column border mx-0 border-top border-bottom border-secondary">
+    <div class="col-12 col-lg-9 col-md-9 col-sm-12 d-flex flex-column border-start mx-0 border-secondary">
       {% for values in posts %}
         {% include "post.html" with data=values %}
       {% endfor %}
     </div>
   </div>
-</div>
 {% endblock %}
