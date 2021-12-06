@@ -2,28 +2,63 @@
 {% load static %}
 {% block head %}
 	<meta charset="utf-8">
-	<title></title>
+	<title>Day Space | Register</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+	<style>
+		.form-signin {
+			width: 100%;
+			max-width: 960px;
+			padding: 15px;
+			margin: auto;
+		}
+
+		.form-signin .checkbox {
+			font-weight: 400;
+		}
+
+		.form-signin .form-floating:focus-within {
+			z-index: 2;
+		}
+
+		.form-signin input[type="email"] {
+			margin-bottom: 10px;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		.form-signin input[type="text"] {
+			margin-bottom: 10px;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		.form-signin input[type="password"] {
+			margin-bottom: -1px;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+    </style>
 {% endblock %}
 
 {% block content %}
-<div class="container row d-flex bg-light h-auto border-1 rounded-bottom">
-	<form class="p-3 justify-content-center" method="post">{% csrf_token %}
-		{% for field in registration_form %}
-			<p>
-				{{field.label_tag}}
-				{{field}}
-
-				{% if field.help_text %}
-					<small style="color:grey;">{{field.help_text}}</small>
-				{% endif %}
-
-				{% for error in field.errors %}
-					<p style="color:red;">{{error}}</p>
-				{% endfor %}
-			</p>
+<main class="container row d-flex bg-light h-auto border-1 rounded-bottom form-signin">
+	<form class="my-4" method="post">{% csrf_token %}
+		<h1 class="h3 mb-3 fw-normal">Registration</h1>
+		<input type="email" name="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+		<input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username">
+		<input type="password" name="password1" class="form-control" id="inputPassword" placeholder="Password">
+		<input type="password" name="password2" class="form-control  mb-4" id="inputPassword" placeholder="Password Again">
+		{% for field in login_form %}
+			{% for error in field.errors %}
+				<p style="color:red;">{{error}}</p>
+			{% endfor %}
 		{% endfor %}
-		<button type="submit" class="w-100 btn btn-primary my-3">Submit</button>
-	</form>
-</div>
+		{% if login_form.non_field_errors %}
+			<div style="color:red;">
+				<p>{{login_form.non_field_errors}}</p>
+			</div>
+		{% endif %}
+		<button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+  </form>
+</main>
 {% endblock%}

@@ -7,6 +7,9 @@ from django.shortcuts import redirect, render
 # Create your views here.
 def register(request):
     context = {}
+    if request.user.is_authenticated:
+        return redirect('home')
+
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -58,7 +61,12 @@ def account_view(request):
     if request.POST:
         form = AccountUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
+            form.initial = {
+                'email': request.POST['email'],
+                'username': request.POST['username'],
+            }
             form.save()
+            context['success_message'] = "Updated"
     else:
         form = AccountUpdateForm(
             initial={

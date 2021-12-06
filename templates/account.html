@@ -2,36 +2,63 @@
 {% load static %}
 {% block head %}
     <meta charset="utf-8">
-	<title></title>
+	<title>Day Space | Profile</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <style>
+		.form-signin {
+			width: 100%;
+			max-width: 960px;
+			padding: 15px;
+			margin: auto;
+		}
+
+		.form-signin .checkbox {
+			font-weight: 400;
+		}
+
+		.form-signin .form-floating:focus-within {
+			z-index: 2;
+		}
+
+		.form-signin input[type="email"] {
+			margin-bottom: -1px;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		.form-signin input[type="password"] {
+			margin-bottom: 10px;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+    </style>
 {% endblock %}
 
 
 {% block content %}
-<div class="row d-flex bg-light h-auto border-1 rounded-bottom">
-<form method="post">{% csrf_token %}
-    {% for field in account_form %}
-        <p>
-            {{field.label_tag}}
-            {{field}}
-
-            {% if field.help_text %}
-                <small style="color:grey;">{{field.help_text}}</small>
-            {% endif %}
-        </p>
-    {% endfor %}
-    {% for field in account_form %}
-        {% for error in field.errors %}
-            <p style="color:red;">{{error}}</p>
-        {% endfor %}
-    {% endfor %}
-    {% if account_form.non_field_errors %}
-        <div style="color:red;">
-            <p>{{account_form.non_field_errors}}</p>
-        </div>
-    {% endif %}
-    <button type="submit" class="w-100 btn btn-primary my-3">Save</button>
-</form>
-</div>
+<main class="container row d-flex justify-content-center bg-light h-auto border-1 rounded-bottom form-signin">
+	<form class="my-4" method="post">{% csrf_token %}
+		<h1 class="h3 mb-3 fw-normal">Account Details</h1>
+		<input type="email" name="email" class="form-control mb-2" id="inputEmail" placeholder="name@example.com"
+        value="{{account_form.initial.email}}">
+		<input type="text" name="username" class="form-control  mb-4" id="inputUsername" placeholder="Password"
+        value="{{account_form.initial.username}}">
+		
+        {% for field in account_form %}
+			{% for error in field.errors %}
+				<p style="color:red;">{{error}}</p>
+			{% endfor %}
+		{% endfor %}
+		{% if account_form.non_field_errors %}
+			<div style="color:red;">
+				<p>{{account_form.non_field_errors}}</p>
+			</div>
+		{% endif %}
+        {% if success_message %}
+            <p class="mx-auto" style="color:green; width:fit-content;">{{success_message}}</p>
+        {% endif %}
+		<button class="w-100 btn btn-lg btn-primary" type="submit">Save Changes</button>
+    </form>
+</main>
 {% endblock %}
