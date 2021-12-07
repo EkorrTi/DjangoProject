@@ -8,6 +8,7 @@ from article.models import Posts
 def home(request):
     context = {}
     context['posts'] = Posts.objects.order_by('-time')
+    context['user'] = request.user
 
     return render(request, 'home.html', context)
 

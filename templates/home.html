@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class="row d-flex bg-light h-auto border-1 rounded-bottom">
+  <div class="row justify-content-center d-flex bg-light h-auto border-1 rounded-bottom">
     <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
@@ -21,8 +21,8 @@
       <hr>
     </div>
     <div class="col-12 col-lg-9 col-md-9 col-sm-12 d-flex flex-column border-start mx-0 border-secondary">
-      {% for values in posts %}
-        {% include "post.html" with data=values %}
+      {% for post in posts %}
+        {% include "post.html" with post=post user=user %}
       {% endfor %}
     </div>
   </div>

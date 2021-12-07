@@ -48,14 +48,14 @@
 		<input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username">
 		<input type="password" name="password1" class="form-control" id="inputPassword" placeholder="Password">
 		<input type="password" name="password2" class="form-control  mb-4" id="inputPassword" placeholder="Password Again">
-		{% for field in login_form %}
+		{% for field in registration_form %}
 			{% for error in field.errors %}
 				<p style="color:red;">{{error}}</p>
 			{% endfor %}
 		{% endfor %}
-		{% if login_form.non_field_errors %}
+		{% if registration_form.non_field_errors %}
 			<div style="color:red;">
-				<p>{{login_form.non_field_errors}}</p>
+				<p>{{registration_form.non_field_errors}}</p>
 			</div>
 		{% endif %}
 		<button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
