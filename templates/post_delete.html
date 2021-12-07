@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+
+{% endblock head %}
+
+{% block content %}
+<main class="container row justify-content-center bg-light border-1 rounded-bottom">
+    <div class="border border-secondary rounded mx-4 my-4" style="padding: 20px;">                    
+        <div class="d-flex flex-wrap">
+            <img class="img rounded-circle me-2" src="{% static 'images/avatar.png' %}" width="60" height="60">
+            <h2 class="my-auto">
+                <a class="text-decoration-none text-dark " href="#">{{post.user.username}}</a> 
+                <span class="fw-light fst-italic">posted on {{post.time}}</span>
+            </h2>
+        </div>
+        <div class="my-3 border border-secondary">
+            <p class="p-sm-3 text-muted">{{post.text}}</p>
+        </div>
+    </div>
+	<form class="my-4" method="POST">
+		<!-- Security token by Django -->
+		{% csrf_token %}
+		<h2 class="h3 mb-3 fw-normal">Are you sure you want to delete this item?</h2>
+		<input type="submit" value="Yes" class="w-100 btn btn-lg btn-success"/>
+		<a class="mt-2 w-100 btn btn-lg btn-danger" href="/">Cancel </a>
+	</form>
+</main>
+{% endblock content %}
