@@ -7,19 +7,20 @@
 {% endblock %}
 
 {% block content %}
-  <div class="row d-flex border border-1 rounded-bottom bg-light justify-content-center" style="height: 95vh; margin: 0 60px;">
+  <div class="row d-flex border border-1 rounded-bottom bg-light justify-content-center">
 
     <div class="col-12 col-lg-7 col-md-12 col-sm-12 d-flex flex-column p-4 border-secondary">
 
       <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
 
         <div class="carousel-inner">
-          <div class="carousel-item" data-bs-interval="10000">
-           <img src="{% static 'images/avatar.png' %}" class="d-block w-100" alt="...">
+          <div class="carousel-item" data-bs-interval="2000">
+           <img src="https://dailyiowan.com/wp-content/uploads/2019/09/friends.jpeg" class="d-block w-100" alt="...">
           </div>
 
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img src="{% static 'images/avatar.png' %}" class="d-block w-50" alt="...">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src="https://images.unsplash.com/photo-1520127877998-122c33e8eb38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGZyaWVuZHMlMjBoYW5naW5nJTIwb3V0fGVufDB8fDB8fA%3D%3D&w=1000&q=80" 
+            class="d-block w-100" alt="...">
           </div>
         </div>
 
@@ -33,7 +34,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="col border d-flex justify-content-center align-items-center  border-secondary rounded" >
+      <div class="col border d-flex justify-content-center align-items-center border-secondary rounded mt-5" style="min-height: 550px; ">
 
         <iframe src="https://yandex.kz/map-widget/v1/-/CCUqqMQpkC" height="100%" width="100%" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
       
