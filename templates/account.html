@@ -58,7 +58,29 @@
         {% if success_message %}
             <p class="mx-auto" style="color:green; width:fit-content;">{{success_message}}</p>
         {% endif %}
-		<button class="w-100 btn btn-lg btn-primary" type="submit">Save Changes</button>
+		{% comment %} <button class="w-100 btn btn-lg btn-primary" type="submit">Save Changes</button> {% endcomment %}
+
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		Save Changes
+		</button>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Not really</button>
+						<button type="submit" class="btn btn-primary">Yesh!</button>
+					</div>
+				</div>
+			</div>
+		</div>
     </form>
 </main>
 {% endblock %}
