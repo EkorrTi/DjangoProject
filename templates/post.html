@@ -1,5 +1,5 @@
 {% load static %}
-<div class="border border-secondary rounded mx-4 my-4" style="padding: 20px;">                    
+<div class="border border-3 rounded mx-4 my-4" style="padding: 20px;">                    
   <div class="d-flex flex-wrap">
     <img class="img rounded-circle me-2" src="{% static 'images/avatar.png' %}" width="60" height="60">
     <h2 class="my-auto">
@@ -8,7 +8,7 @@
       
     </h2>
   </div>
-  <div class="my-3 border border-secondary">
+  <div class="my-3 border border-3 rounded ">
     <p class="p-sm-3 text-muted">{{post.text}}</p>
   </div>
   {% if post.user.email == user.email or user.is_admin %}

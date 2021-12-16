@@ -15,7 +15,7 @@
 </head>
 
 <body class="bg-dark bg-gradient" style="--bs-bg-opacity: .5;">
-  <header class="p-3 border-bottom border-secondary bg-light">
+  <header class="p-3 border-bottom border-2 rounded-bottom bg-light">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 text-dark text-decoration-none me-md-4">
@@ -42,8 +42,8 @@
           </div>
         {% else %}
         <p>
-          <a href="{% url 'register' %}">Register</a> | 
-          <a href="{% url 'login' %}">Login</a>
+          <a href="{% url 'register' %}" class= "text-decoration-none link-dark">Register</a> | 
+          <a href="{% url 'login' %}" class= "text-decoration-none link-dark">Login</a>
         </p>
         {% endif %}
       </div>
