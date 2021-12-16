@@ -9,18 +9,20 @@
 
 {% block content %}
   <div class="row justify-content-center d-flex bg-light h-auto border-1 rounded-bottom">
-    <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
-      <hr>
+    <div class="col-12 col-lg-2 col-md-12 col-sm-12 d-flex flex-column flex-shrink-0 p-3" >
+    
       <ul class="nav nav-pills flex-column mb-auto">
+      <hr>
         <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
         <li><a href="#" class="nav-link link-dark">Photos</a></li>
         <li><a href="#" class="nav-link link-dark">Videos</a></li>
         <li><a href="#" class="nav-link link-dark">Groups</a></li>
         <li><a href="#" class="nav-link link-dark">Friends</a></li>
+        <hr>
       </ul>
-      <hr>
+      
     </div>
-    <div class="col-12 col-lg-9 col-md-9 col-sm-12 d-flex flex-column border-start mx-0 border-secondary">
+    <div id="posts" class="col-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 d-flex flex-column mx-0">
       {% for post in posts %}
         {% include "post.html" with post=post user=user %}
       {% endfor %}
