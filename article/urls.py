@@ -5,7 +5,6 @@ from . import views
 from account import views as AccViews
 
 urlpatterns =[
-    path('admin/', admin.site.urls, name='admin'),
     path('register', AccViews.register, name='register'),
     path('', views.home, name='home'),
     path('contacts', views.contacts, name='contacts'),
