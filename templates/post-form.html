@@ -4,21 +4,11 @@
 	<title>Makin a Post</title>
 {% endblock %}
 {% block content %}
-		<div class="row justify-content-center"style="margin-top:10%">
-			<div class="col-lg-5 col-md-8 col-sm-9 col-xs-9" style="border-radius: 30px; padding: 20px; background-color:blanchedalmond;">
-				<form class="p-3" method="post">{% csrf_token %}
-				{% for field in post_form %}
-					<div class="input-group">
-						{{field.label_tag}}
-						{{field}}
-
-						{% if field.help_text %}
-							<small style="color:grey;">{{field.help_text}}</small>
-						{% endif %}
-					</div>
-				{% endfor %}
-					<button type="submit" class="w-100 btn btn-primary">Submit</button>
-				</form>
-			</div>
-		</div>
+<main class="container row d-flex bg-light h-auto border-1 rounded-bottom form-signin">
+	<form class="my-4" method="post">{% csrf_token %}
+		<h1 class="h3 mb-3 fw-normal">Text:</h1>
+		<textarea type="textarea" name="text" class="form-control mb-2" id="floatingInput" placeholder="Your thoughts and feelings" style="height: 200px"></textarea>
+		<button class="w-100 btn btn-lg btn-primary" type="submit">Post</button>
+  </form>
+</main>
 {% endblock%}
